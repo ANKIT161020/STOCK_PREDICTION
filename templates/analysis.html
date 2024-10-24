@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Stock Analysis for {{ ticker }}</title>
+    <link rel="stylesheet" href="../static/css/style.css">
+</head>
+<body>
+    <h1>Stock Analysis for {{ ticker }}</h1>
+
+    <div class="result-container">
+        <h2>LSTM Model</h2>
+        <p>Current Price: ₹{{ lstm_result['current_price'] }}</p>
+        <p>Predicted Price after 10 months: ₹{{ lstm_result['predicted_final_price'] }}</p>
+        <p>Initial Investment: ₹{{ lstm_result['initial_investment'] }}</p>
+        <p>Final Value of Investment: ₹{{ lstm_result['final_value'] }}</p>
+        <p>Expected Return in 10 months: {{ lstm_result['return_percentage'] }}%</p>
+        <p>Mean Squared Error: {{ lstm_result['mse'] }}</p>
+        <p>R-squared: {{ lstm_result['r2'] }}</p>
+        <img src="{{ lstm_result['graph_path'] }}" alt="LSTM Stock Prediction Graph">
+
+        <h2>Random Forest Model</h2>
+        <p>Current Price: ₹{{ rf_result['current_price'] }}</p>
+        <p>Predicted Price after 10 months: ₹{{ rf_result['predicted_final_price'] }}</p>
+        <p>Initial Investment: ₹{{ rf_result['initial_investment'] }}</p>
+        <p>Final Value of Investment: ₹{{ rf_result['final_value'] }}</p>
+        <p>Expected Return in 10 months: {{ rf_result['return_percentage'] }}%</p>
+        <p>Mean Squared Error: {{ rf_result['mse'] }}</p>
+        <p>R-squared: {{ rf_result['r2'] }}</p>
+        <img src="{{ rf_result['graph_path'] }}" alt="Random Forest Stock Prediction Graph">
+
+        <h2>SVM Model</h2>
+        <p>Current Price: ₹{{ svm_result['current_price'] }}</p>
+        <p>Predicted Price after 10 months: ₹{{ svm_result['predicted_final_price'] }}</p>
+        <p>Initial Investment: ₹{{ svm_result['initial_investment'] }}</p>
+        <p>Final Value of Investment: ₹{{ svm_result['final_value'] }}</p>
+        <p>Expected Return in 10 months: {{ svm_result['return_percentage'] }}%</p>
+        <p>Mean Squared Error: {{ svm_result['mse'] }}</p>
+        <p>R-squared: {{ svm_result['r2'] }}</p>
+        <img src="{{ svm_result['graph_path'] }}" alt="SVM Stock Prediction Graph">
+
+        <h2>Linear regression Model</h2>
+        <p>Current Price: ₹{{ lr_result['current_price'] }}</p>
+        <p>Predicted Price after 10 months: ₹{{ lr_result['predicted_final_price'] }}</p>
+        <p>Initial Investment: ₹{{ lr_result['initial_investment'] }}</p>
+        <p>Final Value of Investment: ₹{{ lr_result['final_value'] }}</p>
+        <p>Expected Return in 10 months: {{ lr_result['return_percentage'] }}%</p>
+        <p>Mean Squared Error: {{ lr_result['mse'] }}</p>
+        <p>R-squared: {{ lr_result['r2'] }}</p>
+        <img src="{{ lr_result['graph_path'] }}" alt="Naive Bayes Stock Prediction Graph">
+    </div>
+
+    <a href="{{ url_for('index') }}">Go Back</a>
+</body>
+</html>
